@@ -30,9 +30,12 @@ services:
   iam:
     build: ./services/iam
     env_file:
-      - ./services/iam/.env
+      - .env
+      - ./services/iam/.env 
     ports:
       - "8001:8001"
+    volumes:
+      - ./services/iam/app:/app/app
     depends_on:
       - postgres
 
